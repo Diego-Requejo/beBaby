@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidatura a Baby - BEST Football Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .pitch {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 2/3;
+            background: linear-gradient(180deg, #2d5a27 0%, #3e8e34 100%);
+            margin: 20px auto;
+            border: 5px solid white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        /* Líneas del campo */
+        .pitch::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(255,255,255,0.5);
+        }
+
+        .center-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 50%;
+        }
+
+        .penalty-area-top {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 15%;
+            border: 2px solid rgba(255,255,255,0.5);
+            border-top: none;
+        }
+
+        .penalty-area-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 15%;
+            border: 2px solid rgba(255,255,255,0.5);
+            border-bottom: none;
+        }
+
+        /* Jugadores */
+        .player {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 3px solid #facc15;
+        }
+
+        .player:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px #facc15;
+        }
+
+        .player-label {
+            position: absolute;
+            bottom: -25px;
+            background: rgba(0,0,0,0.8);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            white-space: nowrap;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Modal */
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 100;
+            padding: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #2d2d2d;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            position: relative;
+            border: 2px solid #3e8e34;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .meme-placeholder {
+            width: 100%;
+            height: 250px;
+            background: #444;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            border: 2px dashed #666;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <header class="text-center mb-10">
+        <h1 class="text-4xl md:text-6xl font-black text-yellow-400 mb-2 uppercase tracking-tighter">Fichajes BEST 2024</h1>
+        <p class="text-xl text-gray-300">Candidatura de Observer a <span class="text-white font-bold italic underline decoration-yellow-500">Baby</span></p>
+        <div class="mt-4 inline-block bg-yellow-500 text-black px-4 py-1 rounded-full font-bold text-sm">
+            ESTRATEGIA: 4 - 3 - 3
+        </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto">
+        <div class="bg-blue-900/30 p-4 rounded-xl border border-blue-500/50 mb-6 text-center italic">
+            "Para ganar en BEST, hay que dejar de observar desde el banquillo y saltar al campo como Baby."
+        </div>
+
+        <!-- El Campo de Fútbol -->
+        <div class="pitch" id="pitch">
+            <div class="center-circle"></div>
+            <div class="penalty-area-top"></div>
+            <div class="penalty-area-bottom"></div>
+
+            <!-- PORTERO (Introducción) -->
+            <div class="player" style="bottom: 5%; left: 50%; transform: translateX(-50%);" onclick="openModal(0)">
+                <span class="text-2xl">🧤</span>
+                <span class="player-label text-yellow-400">INTRO</span>
+            </div>
+
+            <!-- DEFENSA (4 Motivos) -->
+            <div class="player" style="bottom: 25%; left: 15%;" onclick="openModal(1)">
+                <span class="text-2xl">🛡️</span>
+                <span class="player-label">MOTIVO 1</span>
+            </div>
+            <div class="player" style="bottom: 20%; left: 38%;" onclick="openModal(2)">
+                <span class="text-2xl">🛡️</span>
+                <span class="player-label">MOTIVO 2</span>
+            </div>
+            <div class="player" style="bottom: 20%; left: 62%;" onclick="openModal(3)">
+                <span class="text-2xl">🛡️</span>
+                <span class="player-label">MOTIVO 3</span>
+            </div>
+            <div class="player" style="bottom: 25%; left: 85%;" onclick="openModal(4)">
+                <span class="text-2xl">🛡️</span>
+                <span class="player-label">MOTIVO 4</span>
+            </div>
+
+            <!-- MEDIO (Aportaciones) -->
+            <div class="player" style="bottom: 50%; left: 25%; transform: translateY(50%);" onclick="openModal(5)">
+                <span class="text-2xl">⚙️</span>
+                <span class="player-label">APORTE A</span>
+            </div>
+            <div class="player" style="bottom: 45%; left: 50%; transform: translate(-50%, 50%);" onclick="openModal(6)">
+                <span class="text-2xl">⚙️</span>
+                <span class="player-label">APORTE B</span>
+            </div>
+            <div class="player" style="bottom: 50%; left: 75%; transform: translateY(50%);" onclick="openModal(7)">
+                <span class="text-2xl">⚙️</span>
+                <span class="player-label">APORTE C</span>
+            </div>
+
+            <!-- DELANTERA (Planes Futuros) -->
+            <div class="player" style="bottom: 80%; left: 20%;" onclick="openModal(8)">
+                <span class="text-2xl">🔥</span>
+                <span class="player-label text-red-400">PLAN 1</span>
+            </div>
+            <div class="player" style="bottom: 85%; left: 50%; transform: translateX(-50%);" onclick="openModal(9)">
+                <span class="text-2xl">🚀</span>
+                <span class="player-label text-red-400">VISION</span>
+            </div>
+            <div class="player" style="bottom: 80%; left: 80%;" onclick="openModal(10)">
+                <span class="text-2xl">🔥</span>
+                <span class="player-label text-red-400">PLAN 2</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para mostrar Info del Jugador -->
+    <div id="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+            <div id="modal-meme" class="meme-placeholder">
+                <!-- Imagen del meme -->
+            </div>
+            <h2 id="modal-title" class="text-2xl font-bold text-yellow-400 mb-4"></h2>
+            <p id="modal-text" class="text-gray-200 leading-relaxed"></p>
+        </div>
+    </div>
+
+    <footer class="mt-12 text-center text-gray-500 text-sm">
+        Presiona sobre cada jugador para conocer los detalles de mi fichaje.
+    </footer>
+
+    <script>
+        const playersData = [
+            {
+                title: "El Portero: ¡Se acabó observar!",
+                meme: "[MEME: Persona mirando a través de unos binoculares cansada]\n\n'Llevo tanto tiempo observando que ya sé hasta qué marca de café prefiere el Board. ¡Es hora de soltar los prismáticos y ponerme los guantes!'",
+                text: "Como Observer, he disfrutado viendo cómo funciona la maquinaria de BEST. He aprendido los acrónimos, he ido a las reuniones y he flipado con la energía. Pero ver el partido desde el banquillo ya no es suficiente. Quiero ser la primera línea de defensa de la asociación, estar ahí cuando se me necesite y pasar de ser un espectador a ser parte del equipo oficial."
+            },
+            {
+                title: "Defensa 1: He encontrado mi 'vibe'",
+                meme: "[MEME: Spiderman señalando a otro Spiderman]\n\n'Cuando entro en una sala de BEST y me doy cuenta de que todos están igual de locos que yo.'",
+                text: "El primer motivo es la conexión. He descubierto que BEST no es solo una asociación de estudiantes, es un ecosistema donde encajo perfectamente. Quiero crecer aquí porque me siento cómodo siendo yo mismo."
+            },
+            {
+                title: "Defensa 2: Responsabilidad a mi ritmo",
+                meme: "[MEME: Bebé tomando agua tranquilamente]\n\n'Yo decidiendo mis propias responsabilidades como Baby.'",
+                text: "Ser Baby me permite aportar mi granito de arena bajo mis propios términos. Quiero comprometerme de forma honesta: dar el 100% en las tareas que elija, asegurando calidad sin quemarme, como un buen defensa que sabe cuándo subir al ataque."
+            },
+            {
+                title: "Defensa 3: Sed de Aprendizaje",
+                meme: "[MEME: Stonks Guy]\n\n'Mi conocimiento sobre Soft Skills después de un mes en BEST.'",
+                text: "Quiero seguir creciendo para absorber todo el conocimiento que BEST ofrece. Desde logística hasta comunicación, cada evento es una oportunidad para subir de nivel mis habilidades personales y profesionales."
+            },
+            {
+                title: "Defensa 4: Pasión por el Proyecto",
+                meme: "[MEME: El tipo de 'Change my mind']\n\n'BEST es la mejor asociación para universitarios. Imposible cambiar mi opinión.'",
+                text: "Creo firmemente en lo que hacemos. Ayudar a que otros estudiantes tengan oportunidades internacionales es una misión que me motiva a pasar de ser un interesado externo a un miembro activo."
+            },
+            {
+                title: "Medio 1: Ayuda en Eventos Locales",
+                meme: "[MEME: I'm doing my part - Starship Troopers]\n\n'Yo después de mover dos sillas en el último evento.'",
+                text: "Hasta ahora, aunque era Observer, no me he quedado de brazos cruzados. He ayudado en la organización logística del último evento local, asegurándome de que todo estuviera en su sitio y apoyando al equipo en lo que hiciera falta."
+            },
+            {
+                title: "Medio 2: Brainstorming Creativo",
+                meme: "[MEME: Drake formato 'Si/No']\n\n'No: Quedarse callado en las reuniones.\nSí: Soltar ideas locas para el próximo Spirit.'",
+                text: "He participado activamente en las sesiones de ideas, aportando mi visión fresca y 'externa' para mejorar las dinámicas de grupo y proponer temas nuevos para futuros talleres."
+            },
+            {
+                title: "Medio 3: Difusión y Redes",
+                meme: "[MEME: El Joker bailando en las escaleras]\n\n'Yo después de que un amigo me pregunte qué es BEST por 40ª vez.'",
+                text: "He estado haciendo labor de 'evangelización', explicando a mis compañeros de clase qué es BEST y animándoles a que vengan a conocernos. He sido un embajador en la sombra."
+            },
+            {
+                title: "Delantero 1: El ataque del Marketing",
+                meme: "[MEME: Modern problems require modern solutions]\n\n'Usar memes de fútbol para que me acepten como Baby.'",
+                text: "Mi plan a medio plazo es revolucionar nuestro TikTok. Quiero crear una serie de vídeos cortos contando 'La vida del Baby' para atraer a más gente de forma divertida y cercana."
+            },
+            {
+                title: "Delantero 2: Mentoring de Observers",
+                meme: "[MEME: Yoda y Luke Skywalker]\n\n'Enseñando a los nuevos Observers dónde se guardan las galletas.'",
+                text: "Me gustaría ser el puente para los nuevos. Sé lo que se siente al estar perdido al principio, y quiero ayudar a que la integración de los próximos sea rápida y llena de risas."
+            },
+            {
+                title: "Delantero 3: Mi primer Workshop",
+                meme: "[MEME: Buzz Lightyear: Al infinito y más allá]\n\n'Mis ganas de organizar mi primer evento propio.'",
+                text: "A medio plazo, mi objetivo es liderar una pequeña tarea de organización en un evento regional. Quiero demostrar que un Baby, con las responsabilidades que él decida, puede marcar la diferencia en el marcador final."
+            }
+        ];
+
+        function openModal(index) {
+            const data = playersData[index];
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-text').innerText = data.text;
+            document.getElementById('modal-meme').innerText = data.meme;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal(event) {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Cerrar con la tecla Escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+</body>
+</html>
