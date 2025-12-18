@@ -107,7 +107,7 @@
     }
 
     .player:hover {
-      transform: translate(-50%, -10%) scale(1.15);
+      transform: translate(-50%, -5%) scale(1.15);
     }
 
     .player-circle {
@@ -154,6 +154,17 @@
     .player:hover .player-label {
       opacity: 1;
     }
+
+    .titulo {
+      position: absolute;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    #tit-portero{bottom: 8%;left: 15%;}
+    #tit-defensa{bottom: 40%;}
+    #tit-media{bottom: 65%;}
+    #tit-delantera{bottom: 90%;}
 
     /* Posiciones */
     .gk { bottom: 5%; left: 50%; }
@@ -272,16 +283,6 @@
       text-align: justify;
     }
 
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      color: white;
-    }
-
-    .footer p {
-      font-size: 1.2em;
-      margin: 10px 0;
-    }
 
     @media (max-width: 768px) {
       .header h1 { font-size: 1.8em; }
@@ -294,15 +295,19 @@
 </head>
 <body>
 <div class="header">
-  <h1>🏆 SOLICITUD DE ASCENSO BEST 🏆</h1>
-  <h2>De Observer a Baby - Formación 4-3-3</h2>
-  <p>⚽ Haz clic en cada jugador para descubrir mi jugada maestra ⚽</p>
+  <h1>🏆 PREMIOS THE BEST 2025 🏆</h1>
+  <h2>Carta Be Baby - Diego Requejo</h2>
+  <p>⚽ Haz clic en cada jugador para descubrir porque debo ser Baby ⚽</p>
 </div>
 
 <div class="field-container">
   <div class="center-circle"></div>
   <div class="center-dot"></div>
 
+  <h3 id="tit-portero" class="titulo">¡STOP OBSERVING!</h3>
+  <h3 id="tit-defensa" class="titulo">¿Porque pasar a Baby?</h3>
+  <h3 id="tit-media" class="titulo">Lo que he hecho (no mucho, por eso quiero ser baby)</h3>
+  <h3 id="tit-delantera" class="titulo">Aportaciones y planes de futuro</h3>
   <!-- Portero -->
   <div class="player gk" onclick="openModal('gk')">
     <div class="player-circle">
@@ -310,7 +315,6 @@
     </div>
     <div class="player-label">Portero</div>
   </div>
-
   <!-- Defensa -->
   <div class="player df1" onclick="openModal('df1')">
     <div class="player-circle">
