@@ -28,18 +28,19 @@
 
     body {
       font-family: 'Arial', sans-serif;
-      min-height: 100vh;
       padding: 20px;
       overflow-x: hidden;
+      overflow-y: auto;
       background-image:url("img/fondo.jpg");/*para poner el fondo de la web*/
       background-repeat:no-repeat;
       background-position:center;
       background-size:cover;
+      background-attachment: fixed;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       color: white;
     }
 
@@ -62,8 +63,8 @@
 
     .field-container {
       max-width: 900px;
-      margin: auto auto;
-      min-height: 700px;
+      margin: 0 auto;
+      min-height: 80vh;
       position: relative;
       background: #2d8f42;
       border-radius: 15px;
@@ -311,7 +312,7 @@
 
   <h3 id="tit-portero" class="titulo">¡STOP OBSERVING!</h3>
   <h3 id="tit-defensa" class="titulo">¿Porque pasar a Baby?</h3>
-  <h3 id="tit-media" class="titulo">Lo que he hecho (no mucho, por eso quiero ser baby)</h3>
+  <h3 id="tit-media" class="titulo">Lo que he hecho (no mucho, pero algo es algo)</h3>
   <h3 id="tit-delantera" class="titulo">Aportaciones y planes de futuro</h3>
   <!-- Portero -->
   <div class="player gk" onclick="openModal('gk')">
@@ -323,67 +324,67 @@
   <!-- Defensa -->
   <div class="player df1" onclick="openModal('df1')">
     <div class="player-circle">
-      <img src="img/li.png" alt="Heart eyes">
+      <img src="img/li.png" alt="logro xbox">
     </div>
     <div class="player-label">¿Que me motiva a ser Baby?</div>
   </div>
   <div class="player df2" onclick="openModal('df2')">
     <div class="player-circle">
-      <img src="https://i.imgflip.com/kf88q.jpg" alt="Success kid">
+      <img src="img/dfcIzq.gif" alt="Ascenso">
     </div>
-    <div class="player-label">Defensa</div>
+    <div class="player-label">¿Por qué seguir creciendo en BEST?</div>
   </div>
   <div class="player df3" onclick="openModal('df3')">
     <div class="player-circle">
-      <img src="https://i.imgflip.com/1bij.jpg" alt="Expanding brain">
+      <img src="img/dfcDer.png" alt="Meme gráfico de poder">
     </div>
-    <div class="player-label">Defensa</div>
+    <div class="player-label">Un gran poder conlleva<br>una gran responsabilidad</div>
   </div>
   <div class="player df4" onclick="openModal('df4')">
     <div class="player-circle">
-      <img src="https://i.imgflip.com/261o3j.jpg" alt="Epic handshake">
+      <img src="img/ld.png" alt="Sticker UVa">
     </div>
-    <div class="player-label">Defensa</div>
+    <div class="player-label">Bonus reason</div>
   </div>
 
   <!-- Mediocentros -->
   <div class="player mf1" onclick="openModal('mf1')">
     <div class="player-circle">
-      <img src="https://i.imgflip.com/wje0h.jpg" alt="Success">
+      <img src="img/mvi.png" alt="Ok meme">
     </div>
-    <div class="player-label">Medio</div>
+    <div class="player-label">SiB</div>
   </div>
   <div class="player mf2" onclick="openModal('mf2')">
     <div class="player-circle">
-      <img src="https://i.imgflip.com/30b1gx.jpg" alt="Is this a pigeon">
+      <img src="img/mc.png" alt="explosión web">
     </div>
-    <div class="player-label">Medio</div>
+    <div class="player-label">Traducción página Web</div>
   </div>
   <div class="player mf3" onclick="openModal('mf3')">
     <div class="player-circle">
-      <img src="https://i.imgflip.com/265k.jpg" alt="Stonks">
+      <img src="img/mvd.png" alt="father meme">
     </div>
-    <div class="player-label">Medio</div>
+    <div class="player-label">FeedBack página Web</div>
   </div>
 
   <!-- Delanteros -->
   <div class="player fw1" onclick="openModal('fw1')">
     <div class="player-circle">
-      <img src="https://i.imgflip.com/1ihzfe.jpg" alt="Distracted boyfriend">
+      <img src="img/ei.png" alt="meme esclavo">
     </div>
-    <div class="player-label">Delantero</div>
+    <div class="player-label">Mano de obra</div>
   </div>
   <div class="player fw2" onclick="openModal('fw2')">
     <div class="player-circle">
-      <img src="https://i.imgflip.com/1g8my4.jpg" alt="Thanos fine">
+      <img src="img/dc.png" alt="Latasa">
     </div>
-    <div class="player-label">Delantero</div>
+    <div class="player-label">Papá Latasa</div>
   </div>
   <div class="player fw3" onclick="openModal('fw3')">
     <div class="player-circle">
-      <img src="https://i.imgflip.com/26am.jpg" alt="One does not simply">
+      <img src="img/ed.gif" alt="meme mrada shreck">
     </div>
-    <div class="player-label">Delantero</div>
+    <div class="player-label">¿?</div>
   </div>
 </div>
 
@@ -415,58 +416,66 @@
               'día entenderé los bullshits que tiráis y las 800 siglas que hay? (Spoiler: NO)'
     },
     df2: {
-      position: '¿Por qué seguir creciendo en BEST¿',
+      position: '¿Por qué seguir creciendo en BEST?',
       title: 'Quiero aprender cómo funciona BEST desde dentro',
       meme: 'img/dfcIzq.gif',
       text: 'He estado observando desde fuera y quiero saber más de como funciona BEST desde dentro.'
     },
     df3: {
-      position: '¿Por qué deberías de ser Baby?',
-      title: 'Un gran poder conlleva una gran responsabilidad.',
+      position: '¿Por qué creo que puedo pasar a Baby?',
+      title: 'Un gran poder conlleva una gran responsabilidad',
       meme: 'img/dfcDer.png',
-      text: 'BEST es como  una universidad paralela donde puedes aprender habilidades que ninguna carrera te enseña: trabajo en equipo real, gestión de proyectos, networking, liderazgo... Y yo soy una esponja con sed de conocimiento. Quiero exprimir cada oportunidad de aprendizaje, asistir a formaciones, cagarla y aprender de ello, y convertirme en una mejor versión de mí mismo. Como Observer he probado el aperitivo, pero quiero el menú completo.'
+      text: 'Sé que el pasar a baby lleva consigo unos privilegios pero también unos deberes: puedo votar para decidir' +
+              'en ciertas cuestiones, pero debo votar; puedo coger las llaves de la ofi pero debe hacerme responsable de ellas...' +
+              'Soy consciente de esas responsabilidades y me siento preparado para asumirlas.'
     },
     df4: {
-      position: 'Lateral Derecho',
-      title: '🛡️ Motivo 4: Formar parte de algo grande',
-      meme: 'https://i.imgflip.com/261o3j.jpg',
-      text: 'Hay algo especial en sentir que formas parte de una comunidad que realmente hace cosas, que impacta, que conecta gente de toda Europa. No quiero ser un espectador de esa magia, quiero ser uno de los magos. Quiero tener esa sensación de pertenencia real, de poder decir "soy de BEST" y que signifique algo más que "voy a sus eventos". Quiero estar dentro del círculo, no rondándolo como un fantasma simpático.'
+      position: 'Bonus reason',
+      title: 'fruta🍎 UVa, por si acaso',
+      meme: 'img/ld.png',
+      text: 'No sé el tiempo que me quedará en la UVa, pero sí sé que el tiempo que me queda quiero tener al BEST acompañandome ' +
+              'para tener un sitio en el que desahogarme a gusto y ahogar las penas cuando las cosas no salgan bien.' +
+              'Además de que BEST es como una universidad paralela donde puedes aprender habilidades que ninguna carrera te enseña: ' +
+              'trabajo en equipo real, gestión de proyectos, liderazgo... Quiero exprimir cada oportunidad de aprendizaje.'
     },
     mf1: {
-      position: 'Mediocentro',
-      title: '⚽ Aportación 1: Mi primera contribución',
-      meme: 'https://i.imgflip.com/wje0h.jpg',
-      text: 'Aquí puedes explicar tu primera aportación real a BEST. Por ejemplo: "Participé activamente en [evento/proyecto], donde ayudé con [tarea específica]. Aunque era Observer, me metí de lleno y descubrí que puedo aportar más de lo que pensaba. Esa experiencia me confirmó que este es mi sitio."'
+      position: 'SiB',
+      title: 'Ayuda en la SiB',
+      meme: 'img/mvi.png',
+      text: 'Ayude a limpiar y recoger las mesas después de la comida 👍.'
     },
     mf2: {
-      position: 'Mediocentro',
-      title: '⚽ Aportación 2: Donde he colaborado',
-      meme: 'https://i.imgflip.com/30b1gx.jpg',
-      text: 'Aquí habla de tu segunda aportación. Ejemplo: "También participé en [otra actividad], donde pude aportar mis habilidades en [área concreta]. Me encantó poder contribuir y ver cómo mis pequeñas acciones sumaban al resultado final. Cada experiencia me ha convencido más de que quiero seguir involucrado."'
+      position: 'Traducción página Web',
+      title: 'Traducción de la página web a inglés',
+      meme: 'img/mc.png',
+      text: 'Recientemente he ayudado en la traducción al inglés de la página web de BEST traduciendo el apartado de ' +
+              'contacto (si ha petado algo yo no he sido, lo juro)'
     },
     mf3: {
-      position: 'Mediocentro',
-      title: '⚽ Aportación 3: Mi evolución',
-      meme: 'https://i.imgflip.com/265k.jpg',
-      text: 'Tu tercera aportación o un resumen de tu evolución. Por ejemplo: "He pasado de ser alguien que no conocía a nadie y apenas hablaba, a [logro personal]. He asistido a X eventos, conocido a gente increíble, y cada vez me siento más integrado. Ya no soy el nuevo perdido, soy el nuevo con ganas de comerse el mundo."'
+      position: 'FeedBack página Web',
+      title: 'Mi opinión cuenta (o espero)',
+      meme: 'img/mvd.png',
+      text: 'Aporte un extenso feedback sobre la nueva página web cuando se pidió, ayudando a corregir pequeños errores' +
+              'ortográficos y gramaticales.'
     },
     fw1: {
-      position: 'Extremo Izquierdo',
-      title: '🚀 Futuro 1: Participar en proyectos',
-      meme: 'https://i.imgflip.com/1ihzfe.jpg',
-      text: 'Me encantaría involucrarme en la organización de eventos y proyectos. Tengo ideas frescas (y probablemente algunas locas) que me gustaría proponer. Quiero estar en esas reuniones donde se decide qué hacer, cómo hacerlo, y quién trae las pizzas. A medio plazo, me veo siendo parte activa de al menos [X proyectos/eventos], aportando creatividad y, sobre todo, muchas ganas de currar.'
+      position: 'Mano de obra',
+      title: 'Un esclavo más al servicio de BEST',
+      meme: 'img/ei.png',
+      text: 'Seguiré ayudando en lo que pueda del día a día de la asociación (especialmente en lo relacionado con IT)' +
+              'y en la organización de los eventos que se hagan. Una cabeza pensante (o no pensante) más nunca viene mal'
     },
     fw2: {
-      position: 'Delantero Centro',
-      title: '🚀 Futuro 2: Mis habilidades al servicio',
-      meme: 'https://i.imgflip.com/1g8my4.jpg',
-      text: 'Puedo aportar mis conocimientos en [tus habilidades: diseño, programación, idiomas, organización, redes sociales, etc.]. Me gustaría ponerlos al servicio de BEST de forma más oficial y estructurada. A medio plazo, quiero especializarme en [área concreta] dentro de la asociación y convertirme en la persona a la que recurrir cuando se necesite ayuda en eso. ¡Quiero ser útil de forma estratégica!'
+      position: 'Papá Latasa',
+      title: 'Latasa bebiendo de una taza con la foto de Latasa...',
+      meme: 'img/dc.png',
+      text: 'No tiene nada ver pero no podía dejar fuera de mi once ideal a DON JUAN MIGUEL LATASA'
     },
     fw3: {
-      position: 'Extremo Derecho',
-      title: '🚀 Futuro 3: Crecer con BEST',
-      meme: 'https://i.imgflip.com/26am.jpg',
-      text: 'Mi plan a medio plazo es ir asumiendo responsabilidades de forma progresiva. Empezar con tareas pequeñas, demostrar que soy de fiar, y poco a poco ir escalando. No quiero quemar etapas, pero tampoco quiero estancarme. Me veo en unos meses siendo un Baby veterano que ayuda a los nuevos Observers, y quién sabe, quizás en un futuro aspirar a más. Quiero crecer al ritmo de BEST y viceversa.'
+      position: '¿?',
+      title: 'MW febrero',
+      meme: 'img/ed.gif',
+      text: 'He escuchado que hay un MW en febrero que pilla en muy buenas fechas para organizarlo 👀.'
     }
   };
 
